@@ -1,20 +1,18 @@
 #/usr/bin/env/ python
-import numpy as np
+from numpy import random, sqrt, log, sin, cos, pi
 import matplotlib.pyplot as plt
+from scipy.stats import norm
 
 # distribucion normal
-u1 = np.random.normal(0,1, 100000)
-u2 = np.random.normal(0,1, 100000)
+u1 = random.normal(0,1, 100000)
+u2 = random.normal(0,1, 100000)
 
 ###Box muller
-z1 = np.sqrt(-2 * np.log(u1)) * np.cos(u2)
-z2 = np.sqrt(-2 * np.log(u1)) * np.sen(u2)
+z1 = sqrt(-2*log(u1))*cos(2*pi*u2)
+z2 = sqrt(-2*log(u1))*sin(2*pi*u2)
 
 #Histograma
-plt.hist(u1, bins =60, alpha=0.5, ec='black')
-plt.hist(u2, bins =60, alpha=0.5, ec='green')
+plt.hist(z1, bins =60, alpha=0.5, ec='black')
+plt.hist(z2, bins =60, alpha=0.5, ec='green')
 plt.grid(True)
 plt.show()
-
-
-

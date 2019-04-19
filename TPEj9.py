@@ -91,7 +91,7 @@ for interval in bins:
 res = {}
 for k in FX_bins.keys():
   res[k] = bins_frecuencias_relativas_acumuladas[k] - FX_bins[k]
-  
+#Falta seguir los ultimos pasos que hace este chabon: https://www.youtube.com/watch?v=xh-4iOv-Oyk
 print(res)
 input()
 

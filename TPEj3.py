@@ -1,13 +1,14 @@
 #/usr/bin/env/ python
+# -*- coding: utf-8 -*-
+
 from numpy import random, sqrt, log, sin, cos, pi
 import matplotlib.pyplot as plt
-from scipy.stats import norm
 
-# distribucion normal
+#Distribución normal
 u1 = random.normal(0,1, 100000)
 u2 = random.normal(0,1, 100000)
 
-###Box muller
+#Box muller
 z1 = sqrt(-2*log(u1))*cos(2*pi*u2)
 z2 = sqrt(-2*log(u1))*sin(2*pi*u2)
 

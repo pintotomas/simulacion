@@ -1,6 +1,6 @@
 #/usr/bin/env/ python
-import math 
-import numpy as np
+# -*- coding: utf-8 -*-
+
 import matplotlib.pyplot as plt
 
 modulo = 2**32
@@ -12,18 +12,19 @@ secuencia = [ semilla ]
 def GCL( valor ): 
 	return ( multiplicador * valor + incremento ) % modulo 
 
-for i in range(1,5):
-	secuencia.append( GCL( secuencia[ i-1 ] ) )
+def cargarSecuencia(secuencia,inicio, fin):
+	for i in range(inicio,fin):
+		secuencia.append( GCL( secuencia[ i-1 ] ) )
 
-print('Primeros 5 numeros de la secuencia: ', secuencia)
+cargarSecuencia(secuencia,1, 5)
+print("Primeros 5 numeros de la secuencia: {}".format(secuencia))
 
-#Para que de números entre 0 y 1, divido por su modulo
-#Hipotesis: utilizo como semilla el valor: 0.9
+#Para que de números entre 0 y 1, divido por su módulo
+#Hipótesis: utilizo como semilla el valor: 0.9
 secuenciaRango01 = [0.9]
 
-#cargo la lista de secuencias
-for i in range(1,100000):
-	secuenciaRango01.append( GCL( secuenciaRango01[i-1]) )
+#Cargo la lista de secuencias
+cargarSecuencia(secuenciaRango01,1, 100000)
 
 #divido los valores de la lista de secuencias por su modulo
 for i in range(0,100000):

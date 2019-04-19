@@ -1,17 +1,17 @@
 #/usr/bin/env/ python
-import math 
-import numpy as np
+# -*- coding: utf-8 -*-
+
 import matplotlib.pyplot as plt
 import random
 
-# generador de números aleatorios que provee PYTHON
+#Generador de números aleatorios que provee PYTHON
 def aleatorio():
 	return random.uniform(-1,1)
 
 listaDeValores1=[]
 listaDeValores2=[]
 
-# genero 1000 valores por ejemplo
+#Genero 1000 valores(por ejemplo)
 for i in range(0,10000):
 	x = aleatorio()
 	y = aleatorio()
@@ -19,7 +19,7 @@ for i in range(0,10000):
 		listaDeValores1.append(x)
 		listaDeValores2.append(y)
 
-#grafico
+#Gráfico
 plt.plot(listaDeValores1,listaDeValores2,'o',markersize=1)
 plt.show()
 

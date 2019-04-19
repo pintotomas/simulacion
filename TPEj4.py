@@ -3,10 +3,10 @@ from numpy import random, sqrt, log, sin, cos, pi
 import matplotlib.pyplot as plt
 from scipy.stats import norm
 
-# distribucion normal estandar x de T. la que queremos generar
+#Distribución normal estandar x de T, la que queremos generar
 x = random.normal(40,6, 100000)
 
-# distribucion normal y de T. funcion conocidad
+#Distribución normal y de T. función conocida
 y = random.normal(0,1, 100000)
 
 valores= x/y

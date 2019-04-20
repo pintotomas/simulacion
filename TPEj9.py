@@ -92,23 +92,16 @@ res = {}
 for k in FX_bins.keys():
   res[k] = bins_frecuencias_relativas_acumuladas[k] - FX_bins[k]
 #Falta seguir los ultimos pasos que hace este chabon: https://www.youtube.com/watch?v=xh-4iOv-Oyk
-print(res)
-input()
 
+#Step 4
+max_value = max(res.values())
+
+#Step 5 asumo alpha 0.05
 
 n = 100000
-total_no_of_gaps = n - 1 # solo el intervalo (0.2, 0.5)
 
-average_gap = math.ceil(sum(gaps)/len(gaps)) #Lo redondeo hacia arriba
-min_gap = min(gaps)
-max_gap = max(gaps)
-prob_intervalo = round(b-a, 3)
-prob_fuera_intervalo = 1 - prob_intervalo
-prob_average_gap_teorica = (prob_fuera_intervalo**average_gap)*prob_intervalo
-
-#print('En promedio, cada '+str(average_gap)+' numeros generado por este GCL cae en el intervalo '+str(a)+','+str(b))
-#print('El gap maximo fue: '+str(max_gap)+', y el minimo: '+str(min_gap))
-#print('La probabilidad de que el numero caiga en el intervalo es '+str(prob_intervalo))
-#print('Teoricamente la probabilidad de que caiga '+str(average_gap)+' veces fuera del intervalo y vuelva a caer en el intervalo es: ' +str(round(prob_average_gap_teorica, 1)))
-#print('La probabilidad es relativamente baja, concluyo que si bien segun el histograma del ejercicio 1 los numeros estan')
-#print('bastante bien distribuidos, no se estan generando de manera muy aleatoria si no que secuencialmente (tiene sentido porque es GCL)')
+D = 1.36/math.sqrt(n)
+if max_value > D:
+  print('La muestra es rechazada por el GAP test')
+else:
+  print('La hipotesis no es rechazada')

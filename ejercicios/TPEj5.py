@@ -1,4 +1,5 @@
 #/usr/bin/env/ python
+# -*- coding: utf-8 -*-
 import math 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -37,13 +38,9 @@ for nro in secuencia:
 
 #histograma
 plt.title('Histograma')
-plt.xlabel('Valores de la función')
+plt.xlabel('Valores de la funcion')
 plt.ylabel('Frecuencia')
 plt.hist(valoresFuncion, bins = 10, alpha=0.5, ec='black')
 plt.grid(True)
 plt.show()
-plt.clf()
-
-
-
 

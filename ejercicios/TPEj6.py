@@ -20,7 +20,10 @@ for i in range(0,10000):
 		listaDeValores2.append(y)
 
 #Gráfico
+plt.title('Grafico utilizando una distribucion uniforme')
 plt.plot(listaDeValores1,listaDeValores2,'o',markersize=1)
+plt.xlabel('Valores de X')
+plt.ylabel('Valores de Y')
 plt.show()
 
 

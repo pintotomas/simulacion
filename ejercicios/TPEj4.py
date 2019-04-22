@@ -20,3 +20,4 @@ print(t)
 #plt.hist(u2, bins =60, alpha=0.5, ec='green')
 #plt.grid(True)
 #plt.show()
+

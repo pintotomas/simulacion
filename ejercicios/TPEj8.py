@@ -1,32 +1,31 @@
 #/usr/bin/env/ python
 # -*- coding: utf-8 -*-
+import scipy.stats as stats
+from numpy import random
+from TPEj5 import correrEjercicio
 
-import matplotlib.pyplot as plt
-import numpy as np
-from scipy import stats 
+#Tomamos los resultados del ejercicio 5
+valoresObservados = correrEjercicio()
+nMUestras = 100000
 
-modulo = 2**32
-multiplicador = 1013904223
-incremento = 1664525
-semilla = int(92702 * 0.15 + 93584 * 0.25 + 98757 * 0.26)
-secuencia = [ semilla ]
-#Nivel de significación del 1%
-alpha = 0.01
+esperados = []
+cant_valores = 100000
+dispersionCuadrado = 0
+uniforme = random.uniform(0,1,100000)
 
-def GCL( valor ): 
-	return ( multiplicador * valor + incremento ) % modulo 
+#Generamos la muestra esperada n*p_i
+for i in range(cant_valores):
+    esperado = nMUestras * float(uniforme[i])
+    esperados.append(float(esperado))
 
-def cargarSecuencia(secuencia,inicio, fin):
-	for i in range(inicio,fin):
-		secuencia.append( GCL( secuencia[ i-1 ] ) )
+#Medimos la dispersion de las ocurrencias obervadas(N_i) respectos de las esperadas n*p_i
+for i in range(1,cant_valores):
+    dispersionCuadrado += ((valoresObservados [i] - esperados[i]) ** 2) / esperados[i]
 
-#Cargo la lista de secuencias
-cargarSecuencia(secuencia,1, 100000)
+#Calculamos los grados de libertad de la distribucion Chi-2 
 
-#Aplicamos método de Chi-cuadrado
-observado = secuencia
-esperado = np.array([.25, .25, .25, .25]) 
-stats.chisquare(observado, esperado)
-
-
+if (dispersionCuadrado < t):
+	print(' Se acepta la hipotesis con la distribucion empirica con un error del 1% ')
+else:
+	print('Se rechaza la hipotesis con la distribucion empirica con un error del 1% ')
 

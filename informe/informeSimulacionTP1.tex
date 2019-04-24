@@ -172,11 +172,8 @@
 El trabajo práctico consiste en aplicar conceptos teóricos explicados en clase sobre generación de números aleatorios aplicado a distintos métodos estadísticos utilizados en el medio ciéntifico como ser Box Muller, Generador Congruencial Lineal (GCL), Tranformada inversa y tests como Test espectral y Kolmogorov-Smirnov.
 Los ejercicios están simulados en lenguaje Python.
 
-\section{Conceptos téoricos}
-
-
 \section{Implementación y resultados}
-Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno de ellos. Se toma como base teórica lo explicado en la sección anterior.
+Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno de ellos. Se toma como base teórica lo explicado en clase tanto teórica como clase práctica.
 
 	\subsection{Ejercicio 1}
 		El resultado de los primeros 5 números de la secuencia: [62978, 383030987L, 2740587618L, 1650525291L, 2470812354L]\\
@@ -250,7 +247,18 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 
 
 	\subsection{Ejercicio 8}
-
+	Utilizando el test Estadístico $Chi^2$ se aplica el método utilizando los siguientes pasos:
+	\begin{enumerate}
+		\item Utilizamos la distribución empírica generada en el ejercicio 5). Está distribución se corresponderá a $N_i$ ocurrencias observadas.
+		\item Obtenemos una distribución uniforme con n = 100.000 muestras generadas
+		\item Medimos la dispersion de las ocurrencias obervadas $N_i$ respectos de las esperadas $n*p_i$. La dispersión se calcula como:
+		\begin{align*}
+		D^2 = \Sigma_{k=1}^{k-1} \frac{(N_i - np_i)^2}{np_i}
+		\end{align*}
+		\item Calculamos $D^2 < t$ para saber si aceptamos la hipótesis  con un error del 1\%
+		
+		En nuestro caso obtuvimos que se rechaza la hipótesis con la distribución empirica con un error del 1 \%
+	\end{enumerate}
 
 	\subsection{Ejercicio 9}
 
@@ -265,7 +273,9 @@ El trabajo práctico nos permitió conocer y realizar simulaciones teniendo como
 \begin{thebibliography}{10}
 	\bibitem{} Python, Generación de números con distintas distribuciones de probabilidad, https://docs.python.org/3/library/random.html.
 	\bibitem{} Método de Box Muller, https://es.wikipedia.org/wiki/Método\_de\_Box-Muller.
+	\bibitem{} Probability, Statistics, and Random Processes for Electrical Engineerging,3rd\_Ed. Leon-Garcia
 \end{thebibliography}
+
 
 \newpage
 %-----------------------------------%

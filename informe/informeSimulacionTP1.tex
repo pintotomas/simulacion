@@ -176,18 +176,40 @@ Los ejercicios están simulados en lenguaje Python.
 Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno de ellos. Se toma como base teórica lo explicado en clase tanto teórica como clase práctica.
 
 	\subsection{Ejercicio 1}
-		El resultado de los primeros 5 números de la secuencia: [62978, 383030987L, 2740587618L, 1650525291L, 2470812354L]\\
+	    Para realizar el ejercicio aplicamos lo siguiente:
+	    \begin{enumerate}
+	        \item Creamos la secuencia de números utilizando una Generador Congruencial Lineal( GCL ). Los datos utilizados para el GCL son:
+	            \begin{itemize}
+	                \item módulo = $2^{32}$
+	                \item multiplicador = 1013904223
+	                \item incremento = 1664525
+	                \item semilla = $92702*0.15+93584*0.25+98757*0.26$
+	            \end{itemize}
+	         \item Para que de números entre 0 y 1 se divide por su módulo
+	         \item Graficamos el histograma utilizando la secuencia creada.
+	         
+	    \end{enumerate}
+		El resultado de los primeros 5 números de la secuencia: [62978, 383030987L, 2740587618L, 1650525291L, 2470812354L].\\
 		El histograma pedido utilizando el método Generador Congruencial Lineal (GCL) donde se grafica para números al azar entre 0 y 1,es el siguiente:
 		\begin{figure}[H]
   			\centering
-    			\includegraphics[width=14cm]{imagenes/histogramaEjer1}
+    			\includegraphics[width=11cm]{imagenes/histogramaEjer1}
 		\end{figure}
 
 	\subsection{Ejercicio 2}
+	    Para realizar el ejercicio aplicamos lo siguiente:
+	    \begin{enumerate}
+	        \item Creamos la secuencia utilizando GCL con los mismos datos del ejercicio anterior.
+	        \item A la secuencia creada le dividimos por su módulo para obtener números entre 0 y 1.
+	        \item Aplicamos la función transformada inversa a la secuencia.
+	        \item Realizamos un histograma con la nueva secuencia.
+	        \item Calculamos la media y varianza de la distribución simulada y teórica.
+	    \end{enumerate}
+	    
 		El histograma pedido utilizando el método de la transformada inversa generado con números pseudoaleatorios con distribución exponencial negativa de media 20 es el siguiente:
 		\begin{figure}[H]
   			\centering
-    			\includegraphics[width=14cm]{imagenes/histogramaEjer2}
+    			\includegraphics[width=12cm]{imagenes/histogramaEjer2}
 		\end{figure}
 		Comparando los resultados simulados y teóricos:
 		\begin{itemize}
@@ -200,6 +222,13 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 		Por lo tanto podemos observar que los valores simulados y teóricos son bastantes parecidos.
 
 	\subsection{Ejercicio 3}
+	    Para realizar el ejercicio aplicamos lo siguiente:
+	    \begin{enumerate}
+	        \item Creamos dos listas: u1 y u2 con valores de distribución normal 0, 1.
+	        \item Aplicamos el método de Box Muller a estas dos listas y obtenemos dos listas nuevas z1 y z2.
+	        \item Realizamos histogramas con z1 y z2 y otro histograma con una distribución normal estándar.
+	        \item Calculamos la media y varianza de la distribución simulada y teórica.
+	    \end{enumerate}
 
 		Los resultados que obtenemos son los siguientes:
 		\begin{itemize}
@@ -226,6 +255,7 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 		Por lo tanto podemos observar que se comprueba que el método de Box Muller es una distribución normal estándar.
 
 
+
 	\subsection{Ejercicio 4}
 
 	Seguimos los pasos de esta guia: \href{https://wiseodd.github.io/techblog/2015/10/21/rejection-sampling/}{ Rejection Sampling}.
@@ -243,7 +273,10 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 	\end{figure}
 	Rejection Sampling va a fallar debido a que la $Q(x)$ propuesta no esta envolviendo a nuestra distribucion target $P(x)$
 	Para remediar esto, encontramos un factor k que multiplique a $Q(x)$ que es la relacion maxima entre $P(x)$ y $Q(x)$, entonces:
-	$k = max(P(x) / Q(x)) for all x$
+	\begin{align*}
+		k = max(P(x) / Q(x)) for all x
+	\end{align*}
+
 	Al reescalar..
 	\begin{figure}[H]
   			\centering
@@ -263,6 +296,14 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 	La varianza muestral es mucho mas amplia comparada con la teorica. La media muestral es la misma.
 
 	\subsection{Ejercicio 5}
+	    Para realizar el ejercicio aplicamos lo siguiente:
+	    \begin{enumerate}
+	        \item Se genera 100000 valores utilizando GCL.
+	        \item A la secuencia creada le dividimos por su módulo para obtener números entre 0 y 1.
+	        \item Aplicamos la función transformada inversa a la secuencia utilizando la función de distribución de probabilidad empírica.
+	        \item Realizamos un histograma con la nueva secuencia.
+	    \end{enumerate}
+	
 		El histograma pedido utilizando la función de distribución de probabilidad empírica dada por el enunciado:
 		\begin{figure}[H]
   			\centering
@@ -270,14 +311,21 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 		\end{figure}
 
 	\subsection{Ejercicio 6}
+	    Para realizar el ejercicio aplicamos lo siguiente:
+	    \begin{enumerate}
+	        \item Se genera 2 listas x,y con números aleatorios que provee PYTHON.
+	        \item Con ambas listas x,y creamos dos listas nuevas filtrando con aquellas que cumplen $x^2+y^2<1$.
+	        \item Realizamos un gráfico utlizando estas dos listas nuevas.
+	        
 		El gráfico pedido utilizando tilizando una distribucion uniforme entre [-1,1] generado con números aleatorios en un círculo de radio 1 centrado en el origen.
+		\end{enumerate}
 		\begin{figure}[H]
   			\centering
     			\includegraphics[width=14cm]{imagenes/histogramaEjer6}
 		\end{figure}
 
 	\subsection{Ejercicio 7}
-
+        %https://matplotlib.org/api/_as_gen/mpl_toolkits.mplot3d.axes3d.Axes3D.html
 
 	\subsection{Ejercicio 8}
 	Utilizando el test Estadístico $Chi^2$ se aplica el método utilizando los siguientes pasos:

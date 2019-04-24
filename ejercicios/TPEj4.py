@@ -1,23 +1,44 @@
-#/usr/bin/env/ python
-from numpy import random, sqrt, log, sin, cos, pi
+import numpy as np
+import scipy.stats as st
 import matplotlib.pyplot as plt
-from scipy.stats import norm
 
-#Distribución normal estandar x de T, la que queremos generar
-x = random.normal(40,6, 100000)
-
-#Distribución normal y de T. función conocida
-y = random.normal(0,1, 100000)
-
-valores= x/y
-t=max(valores)
-print(t)
+def p(x):
+    return st.norm.pdf(x, loc=40, scale=6)
 
 
+def q(x):
+    return st.norm.pdf(x, loc=50, scale= 20)
 
-#Histograma
-#plt.hist(u1, bins =60, normed=1, alpha=0.5, ec='black')
-#plt.hist(u2, bins =60, alpha=0.5, ec='green')
-#plt.grid(True)
-#plt.show()
+
+x = np.arange(-50, 151)
+k = max(p(x) / q(x))
+
+
+def rejection_sampling(iter=1000):
+    samples = []
+
+    for i in range(iter):
+        z = np.random.normal(50, 20)
+        u = np.random.uniform(0, k*q(z))
+
+        if u <= p(z):
+            samples.append(z)
+
+    return np.array(samples)
+
+
+if __name__ == '__main__':
+    plt.plot(x, p(x), label = 'target distribution')
+    plt.plot(x, k*q(x), label = 'proposed distribution')
+    plt.legend(loc='upper left')
+    plt.show()
+    print('Rejection sampling in progress..')
+    s = rejection_sampling(iter=100000)
+    mean = round(s.mean(), 2)
+    var = round(s.var(), 2)
+    print('La media de la muestra generada es: '+str(mean)+', y la varianza: '+str(var))
+    plt.plot(x, p(x), label = 'target distribution', color = 'red')
+    plt.hist(s, label = 'histogram rejection sampling', normed=True)
+    plt.legend(loc='upper left')
+    plt.show()
 

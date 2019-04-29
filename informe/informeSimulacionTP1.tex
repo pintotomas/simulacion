@@ -325,7 +325,32 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 		\end{figure}
 
 	\subsection{Ejercicio 7}
-        %https://matplotlib.org/api/_as_gen/mpl_toolkits.mplot3d.axes3d.Axes3D.html
+        	Para realizar el ejercicio aplicamos lo siguiente:
+	    \begin{enumerate}
+	        \item Se genera 3 listas x,y,z utilizando el generador GCL.
+	        \item Con las listas x,y,z creamos 3 listas nuevas filtrando con aquellas que cumplen:
+		\begin{itemize}
+			\item GCL($i$),GCL($i+3$),GCL($i+6$),....
+			\item GCL($i+1$),GCL($i+4$),GCL($i+7$),....
+			\item GCL($i+2$),GCL($i+5$),GCL($i+8$),....
+		\end{itemize}
+
+
+	        \item Realizamos un gráfico utlizando estas dos listas nuevas.
+	        
+		
+	   \end{enumerate}
+		El gráfico en 2D es 
+		\begin{figure}[H]
+  			\centering
+    			\includegraphics[width=14cm]{imagenes/histogramaEjer72d}
+		\end{figure}
+
+		El grafico en 3D es:
+		\begin{figure}[H]
+  			\centering
+    			\includegraphics[width=14cm]{imagenes/histogramaEjer73d}
+		\end{figure}
 
 	\subsection{Ejercicio 8}
 	Utilizando el test Estadístico $Chi^2$ se aplica el método utilizando los siguientes pasos:
@@ -391,6 +416,7 @@ En el ejercicio 3 y 10 si bien podriamos haber trabajado con una unica distribuc
 	\bibitem{} Python, Generación de números con distintas distribuciones de probabilidad, https://docs.python.org/3/library/random.html.
 	\bibitem{} Método de Box Muller, https://es.wikipedia.org/wiki/Método\_de\_Box-Muller.
 	\bibitem{} Probability, Statistics, and Random Processes for Electrical Engineerging,3rd\_Ed. Leon-Garcia
+	\bibitem{} Graficar en python, https://matplotlib.org/api/\_as\_gen/mpl\_toolkits.mplot3d.axes3d.Axes3D.html
 \end{thebibliography}
 
 

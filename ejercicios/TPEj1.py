@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 modulo = 2**32
 multiplicador = 1013904223
 incremento = 1664525
-semilla = int(92702 * 0.15 + 93584 * 0.25 + 98757 * 0.26)
+semilla = int(92702 * 0.15 + 93584 * 0.25 + 98757 * 0.6)
 secuencia = [ semilla ]
 
 def GCL( valor ): 

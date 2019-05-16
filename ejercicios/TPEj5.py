@@ -16,16 +16,16 @@ def GCL( valor ):
 
 def funcionInversa( valoresFuncion, secuencia ):
 	for nro in secuencia:
-	    if (nro >= 0 and nro < 0.4):
-		valoresFuncion.append(1)
-	    elif (nro >= 0.4 and nro < 0.7):
-		valoresFuncion.append(2)
-	    elif (nro >= 0.7 and nro < 0.82):
-		valoresFuncion.append(3)
-	    elif (nro >= 0.82 and nro < 0.92):
-		valoresFuncion.append(4)	
-	    else:
-		valoresFuncion.append(5)
+		if (nro >= 0) and (nro < 0.4):
+			valoresFuncion.append(1)
+		if (nro>=0.4) and (nro < 0.7):
+			valoresFuncion.append(2)
+		if (nro >= 0.7 and nro < 0.82):
+			valoresFuncion.append(3)
+		if (nro >= 0.82 and nro < 0.92):
+			valoresFuncion.append(4)
+		else:			
+			valoresFuncion.append(5)
 	
 	return valoresFuncion
 
@@ -43,7 +43,7 @@ def crearHistograma(valores):
 	plt.title('Histograma')
 	plt.xlabel('Valores de la funcion')
 	plt.ylabel('Frecuencia')
-	plt.hist(valores, bins = 10, alpha=0.5, ec='black')
+	plt.hist(valores, alpha=0.5, ec='black')
 	plt.grid(True)
 	plt.show()
 
@@ -56,7 +56,7 @@ def correrEjercicio():
 	#La función inversa de la Función de distribución Empírica es: 
 	valores = funcionInversa( valoresFuncion, secuenciaModulada )
 	#histograma
-	#crearHistograma(valores)
+	crearHistograma(valores)
 	return valores
 
 correrEjercicio()

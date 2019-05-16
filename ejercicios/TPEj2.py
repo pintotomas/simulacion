@@ -18,7 +18,7 @@ def GCL( valor ):
 
 #Transformada inversa
 def transformadaInversa(u):
-	return -(float(1)/float(20)) * math.log(1-u)
+	return -(float(20)) * math.log(1-u) ##modificado
 
 #Creamos la secuencia utilizando el generador GCL
 for i in range(1,100000):
@@ -45,9 +45,10 @@ media = np.mean(secuencia)
 #Valor simulado de la media
 print("El valor simulado de la media es {}".format(media))
 #Valor teorico de la media
-print("El valor teórico de la media es {}".format(float(1)/float(20)))
+print("El valor teórico de la media es {}".format(float(20)))
 
 #Calculo de varianza
 varianza = np.var(secuencia)
 print("El valor simulado de la varianza es {}".format(varianza))
-print("El valor teórico de la varianza es {}".format(float(1)/float((20))**2))
+lamdaCuadrado = float(1)/float(20**2)
+print("El valor teórico de la varianza es {}".format(float(1)/lamdaCuadrado))

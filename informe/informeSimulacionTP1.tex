@@ -266,12 +266,16 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
     			\includegraphics[width=14cm]{imagenes/target}
 	\end{figure}
 
-	Proponemos $N(50, 30)$ como $Q(x)$
+	Proponemos $Exp(0.01)$ como $Q(x)$
 	\begin{figure}[H]
   			\centering
     			\includegraphics[width=14cm]{imagenes/proposed}
 	\end{figure}
 	Rejection Sampling va a fallar debido a que la $Q(x)$ propuesta no esta envolviendo a nuestra distribucion target $P(x)$
+	\begin{figure}[H]
+  			\centering
+    			\includegraphics[width=14cm]{imagenes/proposed_not_escaled}
+	\end{figure}
 	Para remediar esto, encontramos un factor k que multiplique a $Q(x)$ que es la relacion maxima entre $P(x)$ y $Q(x)$, entonces:
 	\begin{align*}
 		k = max(P(x) / Q(x)) for all x
@@ -292,7 +296,7 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 	Este es el grafico de la distribucion real vs el histograma de valores generados por el algoritmo. 
 	Como podemos ver, el algoritmo logro generar una aproximacion bastante buena. 
 
-	La media de la muestra generada es: 40.0, y la varianza: 35.58.\newline
+	La media de la muestra generada se encuentra alrededor de 40, y la varianza cerca de 36.\newline
 	La varianza muestral es mucho mas amplia comparada con la teorica. La media muestral es la misma.
 
 	\subsection{Ejercicio 5}

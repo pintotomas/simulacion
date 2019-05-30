@@ -18,37 +18,44 @@ secuencia = [ semilla ]
 def GCL( valor ): 
 	return ( multiplicador * valor + incremento ) % modulo 
 
-def cargarSecuencia(secuencia,inicio, fin):
-	for i in range(inicio,fin):
-		secuencia.append( GCL( secuencia[ i-1 ] ) )
-
-
-#Cargo la lista de secuencias
-cargarSecuencia(secuencia,1, 100000)
-
 x=[]
 y=[]
 z=[]
-k=0
 
-for i in (0,len(secuencia)-3):
-	x.append(secuencia[i+k])
-	k+1
-	y.append(secuencia[i+k])
-	k+1
-	z.append(secuencia[i+k])
-	k+1
+k=0
+valor=semilla
+for i in range(15000):
+	valor=GCL(valor)
+	#print(valor)	
+	if(k==0):
+		x.append(valor)
+		k=1
+	else:
+		if(k==1):		
+			y.append(valor)
+			k=2
+		else:
+			z.append(valor)
+			k=0
 
 #grafico 3d
-fig=plt.figure()
-ax=fig.gca(projection='3d')
-ax.plot(x,y,z,linewidth=0.5)
-plt.show()	
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(x,y,z,marker='o')
+plt.title("Grafico 3d")
+ax.set_xlabel('Valores de X')
+ax.set_ylabel('Valores de Y')
+ax.set_zlabel('Valores de Z')
+plt.show()
 
 #grafico 2d
 fig=plt.figure()
-plt.xlim(1,10000000)
-plt.ylim(1,10000000)
-plot(x,y,linewidth=0.5, markersize=12)
-plt.show()	
+plt.xlim(1,1000000000)
+plt.ylim(1,1000000000)
+plot(x,y)
+plt.title('Grafico 2d')
+plt.xlabel('Valores de X')
+plt.ylabel('valores de Y')
+plt.grid(True)
+plt.show()
 

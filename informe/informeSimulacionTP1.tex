@@ -371,34 +371,15 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 	\end{enumerate}
 
 	\subsection{Ejercicio 9}
-	Se siguieron los pasos del algoritmo explicado aqui: \href{https://www.youtube.com/watch?v=xh-4iOv-Oyk}{Gap test example}.
-	\begin{enumerate}
-		\item Utilizamos el generador congruencial lineal implementado en el ejercicio 1
-		\item Asumimos un alpha de 0.05. 
-		\item Definimos la hipotesis:
-		\begin{itemize}
-			\item $H_0$: Se asumen independientes los numeros generados por el generador basandonos en las frecuencias de los gaps.
-			\item $H_1$: No son independientes.
-		\end{itemize}  
-		\item Recorremos el array de numeros generados, inicializando un contador en 0.
-		\item Si nos encontramos con un numero en el intervalo pedido, registramos el valor actual del contador y lo reseteamos.
-		\item Repetimos los pasos 4 (desde donde registramos el valor incluido en el intervalo) y 5 hasta haber recorrido todos los numeros generados.
-		\item Una vez que hayamos registrado todos los gaps, por cada longitud de gap contamos su frecuencia y lo registramos en una nueva tabla
-		\item Agrupamos los intervalos de los gaps. Decidimos hacerlo utilizando los grupos $(0,3)$,$(4,7)$,$(8,11)$, 
-		$(12,15)$, $(16,19)$, $(20,23)$, y a cada grupo le asignamos su correspondiente frecuencia.
-		\item A partir de esto generamos una tabla con la frecuencia relativa de cada longitud de gap . Es decir, para cada grupo de gaps que registramos lo asociamos al valor: \[\frac{GapLength_{i}}{\sum_{i=1}^{n}GapLength_{i}}\]
-		
-		\item Generamos la tabla $Sn(x)$ (la acumulada de la anterior), si a la tabla anterior la llamo A:
-		\[ Sn(x_{i})= {\sum_{j=1}^{i-1}A_{j}}\]
-		\item Generamos la tabla 
-		 $F(x) = 1 - 0.9^{x + 1}$ 
-		 Siendo x el numero mayor de cada grupo de gaps generados anteriormente $(3,7,11,..)$
-		\item Debemos buscar:
-		$D = Max(Sn_{i} - F(x_{i}))$
-		\item Luego
-		$D_{0.05} = 1.36/\sqrt{100000}$
-		\item Finalmente si $D < D_{0.05}$ aceptamos la hipotesis. No sucedio en nuestro caso por lo que la rechazamos.
-	\end{enumerate}
+	Se siguieron los pasos del algoritmo explicado en The Art of Computing Program Volumen 2 de D.E.Knuth, página 62
+
+	Realizamos un grafico para comparar las frecuencias de gaps obtenidas y las esperadas:
+	\begin{figure}[H]
+  		\centering
+    		\includegraphics[width=14cm]{imagenes/ej9}
+	\end{figure}
+	
+	Graficamente se espera que pase el test, y asi sucedio con un nivel de significacion 0.05
 	\subsection{Ejercicio 10}
 	\begin{enumerate}
 		\item Nos apoyamos en scipy.stats, especificamente con la clase kstest

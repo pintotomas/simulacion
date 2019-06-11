@@ -23,7 +23,8 @@ class InstruccionCompleja(object):
     self.lee_memoria = lee_memoria
 
   def costo(self):
-    return 10
+    #return 10
+    return 5
 
 class InstruccionSimple(object):
 
@@ -31,4 +32,5 @@ class InstruccionSimple(object):
     self.lee_memoria = lee_memoria
 
   def costo(self):
-    return 60
+    #return 60
+    return 10

@@ -1,5 +1,5 @@
 import random
-
+SECOND_TO_MICROSECOND = 1000000
 class InstruccionFactory(object):
   
   @staticmethod
@@ -23,8 +23,7 @@ class InstruccionCompleja(object):
     self.lee_memoria = lee_memoria
 
   def costo(self):
-    #return 10
-    return 5
+    return 10/float(SECOND_TO_MICROSECOND)
 
 class InstruccionSimple(object):
 
@@ -32,5 +31,5 @@ class InstruccionSimple(object):
     self.lee_memoria = lee_memoria
 
   def costo(self):
-    #return 60
-    return 10
+    return 60/float(SECOND_TO_MICROSECOND)
+    

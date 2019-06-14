@@ -10,7 +10,7 @@ class InstruccionFactory(object):
     tipo = random.uniform(0,1)
     memoria = random.uniform(0,1)
     lee_memoria = False
-    if (memoria < 0.65):
+    if (memoria <= 0.65):
       lee_memoria = True
     if (tipo <= 0.6):
       return InstruccionSimple(lee_memoria)

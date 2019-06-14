@@ -3,6 +3,7 @@
 import math 
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import stats as sp
 
 ## datos y GCL del ejercicio 1
 modulo = 2**32
@@ -56,8 +57,13 @@ def correrEjercicio():
 	#La función inversa de la Función de distribución Empírica es: 
 	valores = funcionInversa( valoresFuncion, secuenciaModulada )
 	#histograma
-	crearHistograma(valores)
-	return valores
+	#crearHistograma(valores)
+	valoresEsperados=[40000,30000,12000,10000,8000]
+	histo ,bin_edges = np.histogram(valores)
+	observado = [i for i in histo if i!=0]
+	estadistica, pvalue = sp.chisquare(observado,valoresEsperados)
+	print(estadistica)
+	print(pvalue)
 
 correrEjercicio()
 

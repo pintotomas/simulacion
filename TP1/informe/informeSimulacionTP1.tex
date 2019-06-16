@@ -359,15 +359,15 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 	\subsection{Ejercicio 8}
 	Utilizando el test Estadístico $Chi^2$ se aplica el método utilizando los siguientes pasos:
 	\begin{enumerate}
-		\item Utilizamos la distribución empírica generada en el ejercicio 5). Está distribución se corresponderá a $N_i$ ocurrencias observadas.
-		\item Obtenemos una distribución uniforme con n = 100.000 muestras generadas
-		\item Medimos la dispersion de las ocurrencias obervadas $N_i$ respectos de las esperadas $n*p_i$. La dispersión se calcula como:
-		\begin{align*}
-		D^2 = \Sigma_{k=1}^{k-1} \frac{(N_i - np_i)^2}{np_i}
-		\end{align*}
-		\item Calculamos $D^2 < t$ para saber si aceptamos la hipótesis  con un error del 1\%
-		
-		En nuestro caso obtuvimos que se rechaza la hipótesis con la distribución empirica con un error del 1 \%
+		\item Utilizamos la distribución empírica generada en el ejercicio 5). Se obtuvo los datos de la gráfica del histograma creado, éstas serían las frecuencias observadas y son también los valores valores observados.
+		\item Los valores esperados lo obtenemos del enunciado.
+		\item Utilizando la biblioteca de Python $chisquare$ aplicamos el test comparando las frecuencias reales contra las esperadas.
+		Los resultados que se encontraron fueron:
+		\begin{itemize}
+			\item El valor de probabilidad es 1.20431258654e-26
+			\item El valor del estadístico es 127.706866667
+		\end{itemize}
+		En nuestro caso obtuvimos que se acepta la hipotesis con la distribucion empirica con un error del 1%
 	\end{enumerate}
 
 	\subsection{Ejercicio 9}

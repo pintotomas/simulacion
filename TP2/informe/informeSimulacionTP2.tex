@@ -176,8 +176,17 @@
 Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno de ellos. Se toma como base teórica lo explicado en clase tanto teórica como clase práctica.
 
 	\subsection{Ejercicio 1}
-	    
+	    En readme.md se encuentran las instrucciones de como ejecutar el programa
+	    Se utilizaron threads distintos para simular el OS que genera instrucciones, el procesador que las procesa y la memoria/cache (segun la alternativa ejecutada) que busca el dato en memoria de ser necesario, estos threads comparten una cola de instrucciones a ser ejecutadas, mientras que solo el OS y la memoria/cache comparten una cola de instrucciones que primero deben acceder a memoria
 
+	    Los resultados obtenidos luego de ejecutar ambas alternativas durante 15 minutos fueron los siguientes:
+
+	    \begin{figure}[H]
+  			\centering
+    			\includegraphics[width=11cm]{imagenes/ejercicio1}
+		\end{figure}
+
+		Sin duda, la mejor alternativa es la segunda. Luego de 15 minutos pudo procesar alrededor de 50mil instrucciones mas que la primer alternativa.
 	\subsection{Ejercicio 2}
 	    
 		
@@ -238,6 +247,10 @@ El trabajo práctico nos permitió conocer y realizar simulaciones teniendo como
 			\lstinputlisting[language=Python]{../ejercicios/Ejercicio1/OS.py}
 		\subsubsection{procesador}
 			\lstinputlisting[language=Python]{../ejercicios/Ejercicio1/procesador.py}
+		\subsubsection{main}
+			\lstinputlisting[language=Python]{../ejercicios/Ejercicio1/main.py}
+		\subsubsection{grafico}
+			\lstinputlisting[language=Python]{../ejercicios/Ejercicio1/grafico.py}
 
 	\newpage
 

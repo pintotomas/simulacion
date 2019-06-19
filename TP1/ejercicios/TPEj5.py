@@ -1,8 +1,9 @@
-#/usr/bin/env/ python
+#!/usr/bin/env/ python
 # -*- coding: utf-8 -*-
 import math 
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import stats as sp
 
 ## datos y GCL del ejercicio 1
 modulo = 2**32

@@ -182,9 +182,54 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 	    
 		
 	\subsection{Ejercicio 3}
-	    
+		El "modelo de la telaraña" tiene la siguiente estructura:
+		\begin{equation}
+			\begin{array}{llllll}
+				&Q_t^{demanda} = & a - bP_t \\
+				&Q_t^{oferta} = & dP_{t-1} - c \\
+				&Q_t^{demanda} = &Q_t^{oferta}  = &Q_t
+			\end{array}
+		\end{equation}
+		
+		En donde tienen los parámetros siguientes :
+		\begin{itemize}
+					\item a = 9
+					\item b = 1,1
+					\item c = 0,4
+					\item d = 1
+					\item $P_0 = 8$
+		\end{itemize}
 
+		Respondiendo lo que se pide:
+		\begin{enumerate}
+			\item El sistema es dicreto, lineal, autónomo y de primer orden
+			\item Resolviendo el sistema de ecuaciones se obtuvo el punto de equilibrio:
+				\begin{center}
+					$P = \frac{a+c}{d+b}$
+				\end{center}
+				Utilizando los datos del ejercicio se obtuvo:
+				\begin{center}
+					$P = \frac{94}{21}$\\
+					\vspace*{0.15in}
+					$Q = \frac{428}{105}$
+				\end{center}
+			
+			\item Realizando un análisis asintótico obtuvimos que: 
+				\begin{center}
+					$\lambda_1 = 1$\\
+					\vspace*{0.15in}
+					$\lambda_2 = \frac{-11}{10}$
+				\end{center}
+				En donde se llega a que el sistema es un Saddle Point.
+			\item Graficando la variable precio en función del período(t):
+				\begin{figure}[H]
+  					\centering
+    					\includegraphics[width=14cm]{imagenes/precioTiempo}
+				\end{figure}
 
+		\end{enumerate}
+		
+		
 
 	\subsection{Ejercicio 4}
 
@@ -214,6 +259,9 @@ El trabajo práctico nos permitió conocer y realizar simulaciones teniendo como
 
 \begin{thebibliography}{10}
 	\bibitem{} Python, Generación de números con distintas distribuciones de probabilidad, https://docs.python.org/3/library/random.html.
+	\bibitem{} Simpy, Apunte de la cátedra.
+	\bibitem{} Simpy, Documentación, https://simpy.readthedocs.io/en/latest/
+	
 
 \end{thebibliography}
 
@@ -249,7 +297,7 @@ El trabajo práctico nos permitió conocer y realizar simulaciones teniendo como
 
 	\subsection{Resolución ejercicio 3}\label{ejercicio_3}
 		\subsubsection{ejercicio3.py}
-			%\lstinputlisting[language=Python]{../ejercicios/ejercicio_3.py}
+			\lstinputlisting[language=Python]{../ejercicios/ejercicio3.py}
 
 	\newpage
 

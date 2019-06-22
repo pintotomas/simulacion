@@ -64,10 +64,11 @@ def generarOtroEstado(Lista):
 	aleatorio = random.random()
 	sumaTotal = Lista[0]
 	i=0
-	while(aleatorio > sumaTotal or i<50 ):
+	while(aleatorio > sumaTotal ):
 		if(i<50):	
 			sumaTotal = sumaTotal + Lista[i]
 			i=i+1
+		sumaTotal = sumaTotal + Lista[i]
 	return i
 
 estados = []
@@ -101,8 +102,8 @@ for i in range(0,observaciones):
 #Histograma
 plt.title('Histograma')
 plt.xlabel('Estados')
-plt.ylabel('Conectados')
-plt.hist(estados, bins =30, alpha=0.5, ec='black')
+plt.ylabel('Cantidades')
+plt.hist(estados, bins =50, alpha=0.6, ec='black')
 plt.grid(True)
 plt.show()
 

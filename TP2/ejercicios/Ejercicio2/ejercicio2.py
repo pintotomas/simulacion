@@ -103,16 +103,27 @@ for i in range(0,observaciones):
 plt.title('Histograma')
 plt.xlabel('Estados')
 plt.ylabel('Cantidades')
-plt.hist(estados, bins =50, alpha=0.6, ec='black')
+plt.xticks(numpy.arange(50))
+plt.hist(estados, bins =51)
 plt.grid(True)
 plt.show()
 
-
 #d)
 
+# funcion que devuelve el estado estacionario del sistema
+def steady_state_prop(matriz):
+	dimension = matriz.shape[0] 
+	matrizMenosIdentidad = (matriz-numpy.eye(dimension)) 
+	vectorDeUnos = numpy.ones(dimension)  
+	matrizMenosIdentidad = numpy.c_[matrizMenosIdentidad,vectorDeUnos]  
+	matrizXTranspuesta = numpy.dot(matrizMenosIdentidad, matrizMenosIdentidad.T)   
+	return numpy.linalg.solve(matrizXTranspuesta,vectorDeUnos)  
 
+matrizDeTransicion = numpy.matrix(matrizDeTransicion)
+estadoEstacionario = steady_state_prop(matrizDeTransicion)
 
-
+# porcentaje de tiempo en que el sistema no tuvo clientes conectados
+print ('Porcentaje de tiempo que el sistema no tuvo clientes conectados: %.8f%%' % (float(estadoEstacionario[0] * 100)))
 
 
 #e)
@@ -128,5 +139,4 @@ if (probabilidad < 0.1):
 else:
 	print("No es recomendable hacer la migración a otro servidor")	 
 				
-
 

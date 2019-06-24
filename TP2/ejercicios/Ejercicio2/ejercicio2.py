@@ -130,13 +130,17 @@ print ('Porcentaje de tiempo que el sistema no tuvo clientes conectados: %.8f%%'
 #P(i-->j >=40) <= 0.1
 
 probabilidad=0
+divisor=0
 for i in range(0,51):
 	for j in range(40,51):
 		probabilidad = probabilidad + funcionProbabilidad(i,j)
+		divisor=divisor+1
+probabilidad = probabilidad/divisor 
 
 if (probabilidad < 0.1):
-	print("Es recomendable hacer la migración a otro servidor")
+	print("Es recomendable hacer la migración a otro servidor, la probabilidad de tener mas de 40 clientes es:" , probabilidad)
 else:
-	print("No es recomendable hacer la migración a otro servidor")	 
+	print("No es recomendable hacer la migración a otro servidor, la probabilidad de tener mas de 40 clientes es:" , probabilidad)	 
+
 				
 

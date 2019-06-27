@@ -185,6 +185,8 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 		\end{figure}
 
 		Sin duda, la mejor alternativa es la segunda. Luego de 15 minutos pudo procesar alrededor de 50mil instrucciones mas que la primer alternativa.
+\newpage
+
 	\subsection{Ejercicio 2}
 		a) La matriz de transición de estados se obtiene de la siguiente manera, dado que el ejercicio impone por simplicidad que la   cantidad máxima de clientes que se permite en simultaneo en el Homebanking es 50, entonces la matriz de transición es de 51 x 51 (Tambien se incluye la cantidad de 0 clientes). Cada elemento de la matriz es el cambio de estado al siguiente, es decir el paso del estado i al j, por ejemplo si el elemento de la matriz es el (1,2) entonces es la probabilidad de la cantidad de clientes conectados sea 2 sabiendo que en el minuto anterior estaba conectado solo 1.
 		
@@ -204,7 +206,7 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 		d) Porcentaje de tiempo que el sistema no tuvo clientes conectados: $2.24531353$\%
 		
 		e) Es recomendable hacer la migración a otro servidor, la probabilidad de tener mas de 40 clientes es: $2.15$\%
-
+\newpage
 		
 	\subsection{Ejercicio 3}
 		El "modelo de la telaraña" tiene la siguiente estructura:
@@ -241,11 +243,11 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 			
 			\item Realizando un análisis asintótico obtuvimos que: 
 				\begin{center}
-					$\lambda_1 = 1$\\
+					$\lambda_1 = 0$\\
 					\vspace*{0.15in}
-					$\lambda_2 = \frac{-11}{10}$
+					$\lambda_2 = \frac{10}{11}$
 				\end{center}
-				En donde se llega a que el sistema es un Saddle Point.
+				En donde se llega a que el sistema es un sistema estable.
 			\item Graficando la variable precio en función del período(t):
 				\begin{figure}[H]
   					\centering
@@ -269,21 +271,21 @@ Para cada uno de los ejercicios pedidos se realiza una explicación de cada uno 
 		\begin{itemize}
 			\item Con política Round Robin(en segundos):
 				\begin{itemize}
-					\item Tiempo espera: 87.6
-					\item Tiempo max: 416.4
+					\item Tiempo espera: 73.5
+					\item Tiempo max: 140.6
 					\item Tiempo min: 45.0
-					\item Tiempo total: 451783.9
+					\item Tiempo total: 453896.8
 				\end{itemize}
 			\item Las solicitudes son asignadas al azar entre los servidores:
 				\begin{itemize}
-					\item Tiempo espera: 73.6
-					\item Tiempo max: 116.1
+					\item Tiempo espera: 73.7
+					\item Tiempo max: 148.9
 					\item Tiempo min: 45.0
 					\item Tiempo total: 449154.5
 				\end{itemize}
 		\end{itemize}
 
-		Podemos observar que la mejor política de asignación es en donde la solicitud es asignada al azar entre los 6 servidores. Hay una diferencia significativa en el tiempo máximo entre ambos y el tiempo total.
+		Podemos observar que la mejor política de asignación es la de Round Robin. Hay una diferencia significativa en el tiempo total de procesamiento y en el tiempo máximo entre ambos.
 
 \section{Conclusiones}
 El trabajo práctico nos permitió conocer y realizar simulaciones teniendo como base teórica los conceptos explicados en clase . Además, nos permitió conocer herramientas que permiten realizar simulaciones que son muy utilizadas en el campo científico como Simpy que un framwork de simulación discreta orientada a eventos.

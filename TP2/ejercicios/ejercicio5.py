@@ -58,7 +58,6 @@ class Balanceador(object):
             # If we assign randomly
             random_value = randint(0,5)
 	    return_value = self.resources[random_value]
-            
             return return_value
 
 
@@ -76,7 +75,7 @@ def generate_clients(environment, count, interval):
         yield environment.timeout(t)
 
 
-env = simpy.Environment()
+env = simpy.Environment(
 env.process(generate_clients(env, client_count, arrival_rate))
 env.run()
 

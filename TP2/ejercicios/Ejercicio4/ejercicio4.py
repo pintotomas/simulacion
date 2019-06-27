@@ -33,7 +33,7 @@ class Procesamiento:
 		if self.instruc.lee_memoria:
 
 			if not cache:
-				tiempo_ejecucion += numpy.random.exponential(2000/float(SECOND_TO_MICROSECOND))
+				tiempo_ejecucion += numpy.random.exponential(float(SECOND_TO_MICROSECOND)/2000)
 
 
 			elif cache:
@@ -41,9 +41,9 @@ class Procesamiento:
 				en_cache = (rnd.uniform(0,1) <= 0.6)
 
 				if not en_cache:
-					tiempo_ejecucion += numpy.random.exponential(1500/float(SECOND_TO_MICROSECOND)) #busqueda en memoria
+					tiempo_ejecucion += numpy.random.exponential(float(SECOND_TO_MICROSECOND)/1500) #busqueda en memoria
 				else:
-					tiempo_ejecucion += numpy.random.exponential(500/float(SECOND_TO_MICROSECOND)) #busqueda en cache
+					tiempo_ejecucion += numpy.random.exponential(float(SECOND_TO_MICROSECOND)/500) #busqueda en cache
 
 
 		tiempo_ejecucion += numpy.random.exponential(self.instruc.costo())
@@ -58,7 +58,7 @@ def procesar_instrucciones(environment, cantidad, cache):
 		instruc = generador_instrucciones.nueva_instruccion()
 		proc = Procesamiento(env, tiempos,instruc, cache)
 		environment.process(proc.ejecutar(procesador))
-		tiempo_prox_instruc = numpy.random.exponential(250/float(SECOND_TO_MICROSECOND))
+		tiempo_prox_instruc = numpy.random.exponential(float(SECOND_TO_MICROSECOND)/250)
 		yield environment.timeout(tiempo_prox_instruc)
 
 

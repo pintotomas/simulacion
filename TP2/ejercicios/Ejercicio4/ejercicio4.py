@@ -68,17 +68,17 @@ def procesar_instrucciones(environment, cantidad, cache):
 
 
 
-cantidad = 30000
+cantidad = 40000
 
 env = simpy.Environment()
 env.process(procesar_instrucciones(env, cantidad, False))
 env.run() 
 print(sum(tiempos))
-print("Tiempo total de ejecucion alternativa 1 20000 instrucciones: ", round(sum(tiempos)))
+print("Tiempo total de ejecucion alternativa 1 40000 instrucciones: ", round(sum(tiempos)))
 
 
 tiempos = []
 env = simpy.Environment()
 env.process(procesar_instrucciones(env, cantidad, True))
 env.run() 
-print("Tiempo total de ejecucion alternativa 2 20000 instrucciones: ", round(sum(tiempos)))
+print("Tiempo total de ejecucion alternativa 2 40000 instrucciones: ", round(sum(tiempos)))

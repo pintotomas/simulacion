@@ -6,7 +6,12 @@ import instruccion
 generador_instrucciones = instruccion.InstruccionFactory()
 
 tiempos = []
-SECOND_TO_MICROSECOND = 1000000
+
+PROBA_ACCEDER_CACHE = 0.6
+TASA_ACCESO_CACHE = 500
+TASA_ACCESO_MEMORIA_CON_CACHE = 1500
+TASA_ACCESO_MEMORIA_SIN_CACHE = 2000
+TASA_ARRIBO_INSTRUC = 250
 
 class Procesamiento:
 	def __init__(self, env, tiempos_procesamientos ,instruc, cache ):
@@ -33,20 +38,20 @@ class Procesamiento:
 		if self.instruc.lee_memoria:
 
 			if not cache:
-				tiempo_ejecucion += numpy.random.exponential(float(SECOND_TO_MICROSECOND)/2000)
+				tiempo_ejecucion += numpy.random.exponential(1/TASA_ACCESO_MEMORIA_SIN_CACHE)
 
 
 			elif cache:
 
-				en_cache = (rnd.uniform(0,1) <= 0.6)
+				en_cache = (rnd.uniform(0,1) <= PROBA_ACCEDER_CACHE)
 
 				if not en_cache:
-					tiempo_ejecucion += numpy.random.exponential(float(SECOND_TO_MICROSECOND)/1500) #busqueda en memoria
+					tiempo_ejecucion += numpy.random.exponential(1/TASA_ACCESO_MEMORIA_CON_CACHE) #busqueda en memoria
 				else:
-					tiempo_ejecucion += numpy.random.exponential(float(SECOND_TO_MICROSECOND)/500) #busqueda en cache
+					tiempo_ejecucion += numpy.random.exponential(1/TASA_ACCESO_CACHE) #busqueda en cache
 
 
-		tiempo_ejecucion += numpy.random.exponential(self.instruc.costo())
+		tiempo_ejecucion += numpy.random.exponential(1/self.instruc.costo())
 
 		return tiempo_ejecucion
 
@@ -58,22 +63,22 @@ def procesar_instrucciones(environment, cantidad, cache):
 		instruc = generador_instrucciones.nueva_instruccion()
 		proc = Procesamiento(env, tiempos,instruc, cache)
 		environment.process(proc.ejecutar(procesador))
-		tiempo_prox_instruc = numpy.random.exponential(float(SECOND_TO_MICROSECOND)/250)
+		tiempo_prox_instruc = numpy.random.exponential(1/TASA_ARRIBO_INSTRUC)
 		yield environment.timeout(tiempo_prox_instruc)
 
 
 
-cantidad = 200000
+cantidad = 30000
 
 env = simpy.Environment()
 env.process(procesar_instrucciones(env, cantidad, False))
 env.run() 
 print(sum(tiempos))
-print("Tiempo total de ejecucion alternativa 1 (microsegundos) 200000 instrucciones: ", round(sum(tiempos)))
+print("Tiempo total de ejecucion alternativa 1 20000 instrucciones: ", round(sum(tiempos)))
 
 
 tiempos = []
 env = simpy.Environment()
 env.process(procesar_instrucciones(env, cantidad, True))
 env.run() 
-print("Tiempo total de ejecucion alternativa 2 (microsegundos) 200000 instrucciones: ", round(sum(tiempos)))
+print("Tiempo total de ejecucion alternativa 2 20000 instrucciones: ", round(sum(tiempos)))
